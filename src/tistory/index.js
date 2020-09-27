@@ -52,7 +52,11 @@ export default {
     for (const link of match) {
       links.push(link + "?original");
     }
-
+	re = /(https?:\/\/blog\.kakaocdn\.net\/dn\/\w+\/\w+\/\w+\/)img\.jpg;
+	match = data.match(re) || [];
+	for (const link of match) {
+		links.push(link + "?original");
+	}
     // Modern link attachments
     re = /(https?:\/\/k\.kakaocdn\.net\/dn\/\w+\/\w+\/\w+\/)img\.jpg\?(?:attach=1&)?nm=([^'"&]+)/g;
     while (match = re.exec(data)) {  // eslint-disable-line no-cond-assign
